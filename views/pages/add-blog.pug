@@ -1,0 +1,29 @@
+extends ../layout.pug
+
+block content
+  section#section-add.section-add
+      .add-box
+        h2.h2
+          | Post New Blog
+        form#my-blog-form.add-blog-form(action='/blogs' method="POST")
+          label(for='title') Blog Title:
+          input#title.form-text(type='text' name='title' placeholder='How to become a succesful ...' required)
+          label(for='type') Blog Type:
+          select#type(name='type' type='op' required)
+            option(value='brainstorming') Brainstorming
+            option(value='christmas') Decoration
+            option(value='cooking') Cooking
+            option(value='family') Family
+            option(value='homework') Homework
+            option(value='pet') Pet
+            option(value='quizz') Quizz
+            option(value='science') Science
+            option(value='sport') Sport
+            option(value='technology') Technology
+          label(for='author') Blog Author:
+          input#author.form-text(type='text' name='author' placeholder='John Smith' required)
+          label(for='text') Blog Text:
+          textarea#text.form-text.text-area(name='details' placeholder='This blog is intended to ...' required)
+          button#card-add-button.btn.dark Add +
+        svg#card-close-button.close
+          use(xlink:href='../icons/icons.svg#i-close')
