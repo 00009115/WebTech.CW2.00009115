@@ -1,12 +1,16 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+app.set("view engine", "pug");
+
+app.use("/static", express.static("public"));
+
+app.get("/", (req, res) => {
+    res.render("home");
 });
 
-app.listen(8000, err => {
-    if(err) console.log(err);
+app.listen(8000, (err) => {
+    if (err) console.log(err);
 
-    console.log('App is running on port 8000...');
+    console.log("App is running on port 8000...");
 });
