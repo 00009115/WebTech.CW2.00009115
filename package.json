@@ -1,0 +1,31 @@
+{
+  "name": "bloggy",
+  "version": "1.0.0",
+  "description": "A web app intended to help users to post blogs in different topics.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/00009115/WebTech.CW2.00009115.git"
+  },
+  "keywords": [
+    "node.js",
+    "express.js",
+    "pug",
+    "wiut",
+    "web-tech",
+    "cw2"
+  ],
+  "author": "00009115",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/00009115/WebTech.CW2.00009115/issues"
+  },
+  "homepage": "https://github.com/00009115/WebTech.CW2.00009115#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  }
+}
