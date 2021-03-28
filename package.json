@@ -26,6 +26,7 @@
   "homepage": "https://github.com/00009115/WebTech.CW2.00009115#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "nodemon": "^2.0.7",
     "pug": "^3.0.2"
   }
 }
