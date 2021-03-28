@@ -1,0 +1,30 @@
+extends ../layout.pug
+
+block content
+  header.header
+      .header-image
+        img(src='/static/images/contacts.png' alt='Illustration representing entertainment')
+  section.section-contacts
+    h2.h2 Our Contacts
+    .contacts
+      svg
+        use(xlink:href='/static/icons/icons.svg#i-phone')
+      a(href='tel:+998999999999') +998 99 999 99 99
+      svg
+        use(xlink:href='/static/icons/icons.svg#i-email')
+      a(href='mailto:info@joyee.uz') info@joyee.uz
+      svg
+        use(xlink:href='/static/icons/icons.svg#i-location')
+      p 99, Some street, Somewhere, 99999
+  section.section-contact-us
+    h2.h2 Leave Your Message
+    form.contact-us(action='#')
+      label(for='user_name') Name:
+      input(type='text' id='user_name' placeholder='Your name...' required)
+      label(for='email') Email:
+      input(type='email' id='user_email' placeholder='Your email...' required)
+      label(for='message') Message:
+      textarea#message(placeholder='Your message...' required)
+      label(for='mailnews') Do you want mail news?
+      input#mailnews(type='checkbox')
+      a#submit-message.btn.dark(href='#' onclick='return false;') Send

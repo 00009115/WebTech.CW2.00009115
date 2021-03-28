@@ -1,0 +1,27 @@
+extends ../layout.pug
+
+block content
+  header.header
+        .header-image
+          img(src='/static/images/events.png' alt='Illustration representing entertainment')
+  section.section-events
+    h2.h2 Events
+    #events.events
+      .event-card
+        .card-image
+          img(src='/static/images/event-cards/pet.png' alt='An Illustration of petting | from https://icons8.com/illustrations')
+        .card-information
+          .data
+            svg
+              use(xlink:href='/static/icons/icons.svg#i-time')
+            p 2-3 hours
+            svg
+              use(xlink:href='/static/icons/icons.svg#i-users')
+            p 5-10 people
+          h3.h3 Entertainment with pets
+          p.text
+            | If your dog requires lots of long walks, runs, and plenty of playtime to burn off
+            | some energy, then you need to join us.
+          a.link(href='#' onclick='return false;') Join &#8594;
+    svg#add-button
+      use(xlink:href='/static/icons/icons.svg#i-plus')
