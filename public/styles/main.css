@@ -1074,156 +1074,6 @@ button.btn {
     }
 }
 
-.sign {
-    background: linear-gradient(135deg, #003ba8 0%, #0059ff 100%);
-    width: 100%;
-    height: 100vh;
-}
-
-.sign.sign-in {
-    background: linear-gradient(135deg, #0059ff 0%, #003ba8 100%);
-}
-
-.sign .nav .logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.sign .nav .logo img {
-    -webkit-filter: brightness(0) invert(1);
-    filter: brightness(0) invert(1);
-    width: 10rem;
-}
-
-.sign .nav .nav-bar {
-    -ms-flex-preferred-size: 30%;
-    flex-basis: 30%;
-}
-
-.sign .nav .nav-bar .nav-item a.page {
-    color: #fff;
-    font-size: 1.5rem;
-}
-
-.sign .nav .nav-bar .nav-item a.page::before {
-    border-color: #fff;
-}
-
-@media only screen and (min-width: 767.98px) {
-    .sign .nav .nav-bar .nav-item a.page:hover {
-        color: #fff;
-    }
-    .sign .nav .nav-bar .nav-item a.page:hover::before {
-        width: 8rem;
-        height: 8rem;
-    }
-}
-
-.sign .section-sign {
-    position: absolute;
-    top: 52%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    width: 40%;
-    height: 70%;
-    border-radius: 3rem;
-    padding: 5rem 10rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    overflow-y: hidden;
-}
-
-.sign .section-sign .h2 {
-    margin-bottom: 4rem;
-}
-
-.sign .section-sign label {
-    font-size: 1.5rem;
-    margin: 2rem 0 1rem 0;
-}
-
-.sign .section-sign input {
-    padding: 1.2rem 2rem;
-    border-radius: 5rem;
-    border: 1px solid #222;
-    outline: none;
-}
-
-.sign .section-sign a.btn {
-    font-size: 1.5rem;
-    padding: 1.2rem 2rem;
-    margin-top: 3rem;
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
-    align-self: center;
-}
-
-.sign .section-sign p {
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
-    align-self: center;
-    margin-top: 3rem;
-}
-
-.sign .section-sign a.link {
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
-    align-self: center;
-}
-
-@media only screen and (max-width: 767.98px) {
-    .sign .section-sign {
-        width: 60%;
-    }
-}
-
-@media only screen and (max-width: 575.98px) {
-    .sign .section-sign {
-        width: 80%;
-    }
-}
-
-.profile .header .header-image img {
-    width: 30%;
-}
-
-.profile .section-profile {
-    padding: 5rem;
-    text-align: center;
-    background-color: rgba(0, 89, 255, 0.1);
-}
-
-.profile .section-profile svg {
-    width: 15rem;
-    height: 15rem;
-    fill: #003ba8;
-}
-
-.profile .section-profile p#profile-username {
-    font-size: 3rem;
-    margin-bottom: 5rem;
-}
-
-.profile .section-blogs .empty-message {
-    grid-column: 1 / -1;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
 .section-blog {
     width: 50%;
     margin: 0 auto;
@@ -1260,4 +1110,25 @@ button.btn {
     margin: 1rem;
     align-self: flex-end;
     padding: 1.2rem 2rem;
+}
+
+p.message {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10rem;
+    margin-top: 4rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+p.error {
+    border: 1px solid red;
+    background-color: rgb(253, 201, 196);
+    color: red;
+}
+
+p.success {
+    border: 1px solid green;
+    background-color: rgb(196, 253, 213);
+    color: green;
 }

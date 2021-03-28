@@ -3,13 +3,18 @@ extends ../layout.pug
 block content
   section#section-add.section-add
       .add-box
-        h2.h2
-          | Post New Blog
-        form#my-blog-form.add-blog-form(action='/blogs' method="POST")
+        h2.h2 Post New Blog
+        
+        if error 
+          p.message.error Some error occured! Try again and make sure that you are filling every field!
+        if success 
+          p.message.success Success! Blog has been uploaded.
+
+        form#my-blog-form.add-blog-form(action='/add-blog' method="POST")
           label(for='title') Blog Title:
-          input#title.form-text(type='text' name='title' placeholder='How to become a succesful ...' required)
+          input#title.form-text(type='text' name='title' placeholder='How to become a succesful ...' )
           label(for='type') Blog Type:
-          select#type(name='type' type='op' required)
+          select#type(name='type' type='op' )
             option(value='brainstorming') Brainstorming
             option(value='christmas') Decoration
             option(value='cooking') Cooking
@@ -21,9 +26,9 @@ block content
             option(value='sport') Sport
             option(value='technology') Technology
           label(for='author') Blog Author:
-          input#author.form-text(type='text' name='author' placeholder='John Smith' required)
+          input#author.form-text(type='text' name='author' placeholder='John Smith' )
           label(for='text') Blog Text:
-          textarea#text.form-text.text-area(name='details' placeholder='This blog is intended to ...' required)
+          textarea#text.form-text.text-area(name='text' placeholder='This blog is intended to ...' )
           button#card-add-button.btn.dark Add +
         svg#card-close-button.close
           use(xlink:href='../icons/icons.svg#i-close')
