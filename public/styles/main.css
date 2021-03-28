@@ -181,13 +181,13 @@ html {
 }
 
 .nav .logo img {
-    width: 12rem;
+    width: 15rem;
 }
 
 .nav .nav-bar {
     list-style: none;
     -ms-flex-preferred-size: 50%;
-    flex-basis: 50%;
+    flex-basis: 30%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -201,7 +201,7 @@ html {
 
 .nav .nav-bar .nav-item a.page {
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #222;
     position: relative;
 }

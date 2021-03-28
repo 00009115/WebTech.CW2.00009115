@@ -1,9 +1,12 @@
 extends ../layout.pug
 
+block title
+  title Bloggy | Contacts
+
 block content
   header.header
       .header-image
-        img(src='/static/images/contacts.png' alt='Illustration representing entertainment')
+        img(src='/static/images/contacts.png' alt='Illustration')
   section.section-contacts
     h2.h2 Our Contacts
     .contacts
@@ -12,7 +15,7 @@ block content
       a(href='tel:+998999999999') +998 99 999 99 99
       svg
         use(xlink:href='/static/icons/icons.svg#i-email')
-      a(href='mailto:info@joyee.uz') info@joyee.uz
+      a(href='mailto:info@joyee.uz') info@bloggy.uz
       svg
         use(xlink:href='/static/icons/icons.svg#i-location')
       p 99, Some street, Somewhere, 99999
