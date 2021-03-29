@@ -1,5 +1,8 @@
 extends layout.pug
 
+block title
+  title=`Bloggy | ${blog.title}`
+
 block content
   section.section-blog
     h2.h2=blog.title
@@ -14,5 +17,5 @@ block content
         if blog.edited
           i=`Edited on ${blog.editedDate}`
       .buttons
-        a.btn.dark(href='#') Edit
-        a.btn.blood(href='#') Delete
+        a.btn.dark(href=`${blog.id}/update`) Update 
+        a.btn.blood(href=`${blog.id}/delete`) Delete

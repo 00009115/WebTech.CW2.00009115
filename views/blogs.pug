@@ -22,13 +22,13 @@ block content
                 p=blog.date
               h3.h3=blog.title
               p.text=blog.text
-              a.link(href=`/blogs/blog${ blog.id }`) Read &#8594;
+              a.link(href=`/blogs/${ blog.id }`) Read &#8594;
         a.add-btn(href="/blogs/add") 
           svg#add-button
             use(xlink:href='/icons/icons.svg#i-plus')
     else
       h2.h2 No Blogs Yet
-      a.add-btn(href="/blogs/add") 
+      a.add-btn(href="/blogs/add")
           svg#add-button
             use(xlink:href='/icons/icons.svg#i-plus')
 

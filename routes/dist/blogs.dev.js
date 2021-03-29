@@ -48,7 +48,7 @@ router.post("/add", function (req, res) {
     });
   }
 });
-router.get("/blog:id", function (req, res) {
+router.get("/:id", function (req, res) {
   dbc.getOne(req.params.id, function (record) {
     return res.render("blog", {
       blog: record
@@ -56,5 +56,12 @@ router.get("/blog:id", function (req, res) {
   }, function () {
     return res.sendStatus(404);
   });
+});
+router.get("/:id/delete", function (req, res) {
+  dbc.deleteOne(req.params.id, function () {
+    return res.redirect("/blogs");
+  }), function () {
+    return res.sendStatus(500);
+  };
 });
 module.exports = router;

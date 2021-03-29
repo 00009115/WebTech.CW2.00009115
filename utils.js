@@ -2,7 +2,6 @@ const path = require("path");
 
 module.exports.generateID = function() {
   return (
-    "_" +
     Math.random()
       .toString(36)
       .substr(2, 9)

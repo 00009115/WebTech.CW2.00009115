@@ -3,7 +3,7 @@
 var path = require("path");
 
 module.exports.generateID = function () {
-  return "_" + Math.random().toString(36).substr(2, 9);
+  return Math.random().toString(36).substr(2, 9);
 };
 
 module.exports.date = function () {

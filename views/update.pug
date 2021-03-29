@@ -1,0 +1,27 @@
+extends layout.pug
+
+block title
+  title Bloggy | Update
+
+block content
+  section#section-add.section-add
+      .add-box
+        h2.h2 Update This Blog
+        form#my-blog-form.add-blog-form(action=`/blogs/${blog.id}/update` method="POST")
+          label(for='title') Blog Title:
+          input#title.form-text(type='text' name='title' value=blog.title)
+          label(for='type') Blog Type:
+          select#type(name='type' type='op')
+            option(value='brainstorming') Brainstorming
+            option(value='christmas') Decoration
+            option(value='cooking') Cooking
+            option(value='family') Family
+            option(value='homework') Homework
+            option(value='pet') Pet
+            option(value='quizz') Quizz
+            option(value='science') Science
+            option(value='sport') Sport
+            option(value='technology') Technology
+          label(for='text') Blog Text:
+          textarea#text.form-text.text-area(name='text')=blog.text
+          button#card-add-button.btn.dark Save

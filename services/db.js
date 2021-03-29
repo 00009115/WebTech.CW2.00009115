@@ -30,8 +30,7 @@ class DbContext {
       if (err) errorCb();
 
       const records = JSON.parse(data);
-      const validRecords = records.filter(record => record.archive != true)
-      successCb(validRecords);
+      successCb(records);
     });
   }
 
@@ -48,7 +47,7 @@ class DbContext {
         author: newRecord.author,
         text: newRecord.text,
         date: date(),
-        edited: false,
+        edited: false
       });
 
       fs.writeFile(this.collection, JSON.stringify(records), err => {
@@ -70,6 +69,25 @@ class DbContext {
         if (err) errorCb();
         successCb();
       });
+    });
+  }
+
+  updateOne(id, newRecord, successCb, errorCb) {
+    fs.readFile(this.collection, "utf8", (err, data) => {
+        if (err) errorCb();
+
+        const records = JSON.parse(data);
+        
+        records.find(record => record.id == id).title = newRecord.title;
+        records.find(record => record.id == id).type = newRecord.type;
+        records.find(record => record.id == id).text = newRecord.text;
+        records.find(record => record.id == id).edited = true;
+        records.find(record => record.id == id).editedDate = date();
+        
+        fs.writeFile(this.collection, JSON.stringify(records), (err) => {
+            if (err) errorCb();
+            successCb();
+        });
     });
   }
 }

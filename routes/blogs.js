@@ -34,12 +34,28 @@ router.post("/add", (req, res) => {
     }
 });
 
-router.get("/blog:id", (req, res) => {
+router.get("/:id", (req, res) => {
     dbc.getOne(
         req.params.id,
         record => res.render("blog", { blog: record }),
         () => res.sendStatus(404)
     );
+});
+
+router.get("/:id/delete", (req, res) => {
+    dbc.deleteOne(req.params.id, () => res.redirect("/blogs")), () => res.sendStatus(500);
+});
+
+router.get("/:id/update", (req, res) => {
+    dbc.getOne(
+        req.params.id,
+        (record) => res.render("update", { blog: record }),
+        () => res.sendStatus(404)
+    );
+});
+
+router.post("/:id/update", (req, res) => {
+    dbc.updateOne(req.params.id, req.body, () => res.redirect(`/blogs/${req.params.id}`)), () => res.sendStatus(500);
 });
 
 module.exports = router;
