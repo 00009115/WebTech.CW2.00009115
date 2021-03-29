@@ -1,4 +1,4 @@
-extends ../layout.pug 
+extends layout.pug 
 
 block title
   title Bloggy | About
@@ -6,13 +6,13 @@ block title
 block content
   header.header
       .header-image
-        img(src='/static/images/about.png' alt='Illustration')
+        img(src='/images/about.png' alt='Illustration')
   section.section-about
     h2.h2 About Us
     .about-data
       .information-title
         svg
-          use(xlink:href='/static/icons/icons.svg#i-mission')
+          use(xlink:href='/icons/icons.svg#i-mission')
         h3.h3 Our Mission
       .information-text
         p To nourish people and the planet. We're a purpose-driven company that aims to set the standards of
@@ -21,7 +21,7 @@ block content
     .about-data.reverse
       .information-title
         svg
-          use(xlink:href='/static/icons/icons.svg#i-story')
+          use(xlink:href='/icons/icons.svg#i-story')
         h3.h3 Our Story
       .information-text
         p With social media, services are now more than their price points, they are living, breathing entities
@@ -30,7 +30,7 @@ block content
     .about-data
       .information-title
         svg
-          use(xlink:href='/static/icons/icons.svg#i-location')
+          use(xlink:href='/icons/icons.svg#i-location')
         h3.h3 Our Locations
       .information-text
         p To be precise, we are located in the UNIVERSE. You can use our services despite your location. You

@@ -1,4 +1,4 @@
-extends ../layout.pug
+extends layout.pug
 
 block content
   section#section-add.section-add
@@ -10,7 +10,7 @@ block content
         if success 
           p.message.success Success! Blog has been uploaded.
 
-        form#my-blog-form.add-blog-form(action='/add-blog' method="POST")
+        form#my-blog-form.add-blog-form(action='/blogs/add' method="POST")
           label(for='title') Blog Title:
           input#title.form-text(type='text' name='title' placeholder='How to become a succesful ...' )
           label(for='type') Blog Type:
@@ -30,5 +30,3 @@ block content
           label(for='text') Blog Text:
           textarea#text.form-text.text-area(name='text' placeholder='This blog is intended to ...' )
           button#card-add-button.btn.dark Add +
-        svg#card-close-button.close
-          use(xlink:href='../icons/icons.svg#i-close')

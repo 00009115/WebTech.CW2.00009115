@@ -9,39 +9,46 @@ block content
       h1.h1 Enjoy blogs with 
         span bloggy
     .header-image
-      img(src='/static/images/hero.png' alt='Illustration | from https://icons8.com/illustrations')
+      img(src='/images/hero.png' alt='Illustration | from https://icons8.com/illustrations')
   section.section-advantages
     h2.h2 Why to choose us?
     .advantages
       .advantage
         svg
-          use(xlink:href='/static/icons/icons.svg#i-users')
+          use(xlink:href='/icons/icons.svg#i-users')
         h3.h3 Great range of active blog makers
         p Being one of the most popular blog web-site, Bloggy has a great range of active users.
       .advantage
         svg
-          use(xlink:href='/static/icons/icons.svg#i-safe')
+          use(xlink:href='/icons/icons.svg#i-safe')
         h3.h3 Everything is safe and secure
         p As we aim to make you happy by helping you to enjoy and entertain, all our services are safe and secure.
       .advantage
         svg
-          use(xlink:href='/static/icons/icons.svg#i-add')
+          use(xlink:href='/icons/icons.svg#i-add')
         h3.h3 Availability of posting blogs
         p Alongside with reading the already availbale blogs, you can create your own posts to the public.
   section.section-blogs.home
-    h2.h2 Blogs
-    #blogs.blogs
-      each blog in blogs
-        .blog-card
-          .card-image
-            img(src=`/static/images/blog-cards/${blog.type}.png` alt=`An Illustration of ${blog.type} | from https://icons8.com/illustrations`)
-          .card-information
-            .data
-              svg
-                use(xlink:href='/static/icons/icons.svg#i-time')
-              p=blog.date
-            h3.h3=blog.title
-            p.text=blog.text
-            a.link(href=`/blogs/blog${ blog.id }`) Read &#8594;
-      a.btn.dark(href='/blogs') More &#8594;
+    if blogs.length
+      h2.h2 Blogs
+      #blogs.blogs
+        each blog in blogs
+          .blog-card
+            .card-image
+              img(src=`/images/blog-cards/${blog.type}.png` alt=`An Illustration of ${blog.type} | from https://icons8.com/illustrations`)
+            .card-information
+              .data
+                svg
+                  use(xlink:href='/icons/icons.svg#i-time')
+                p=blog.date
+              h3.h3=blog.title
+              p.text=blog.text
+              a.link(href=`/blogs/blog${ blog.id }`) Read &#8594;
+        a.btn.dark(href='/blogs') More &#8594;
+
+    else
+      h2.h2 No Blogs Yet
+      a.add-btn(href="/blogs/add") 
+          svg#add-button
+            use(xlink:href='/icons/icons.svg#i-plus')
   

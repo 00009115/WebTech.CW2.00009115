@@ -4,16 +4,16 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='icon' href='/static/icons/favicon.png')
+    link(rel='icon' href='/icons/favicon.png')
     link(rel='preconnect' href='https://fonts.gstatic.com')
     link(href='https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap&family=Poppins:wght@300;400;500&display=swap&family=Englebert&display=swap' rel='stylesheet')
-    link(href='/static/styles/main.css' rel='stylesheet' type='text/css')
+    link(href='/styles/main.css' rel='stylesheet' type='text/css')
     block title
 
   body
     nav.nav
       a.logo(href='/')
-        img(src='/static/images/logo-main.png' alt='Bloggy Logo | created using freelogodesign.org')
+        img(src='/images/logo-main.png' alt='Bloggy Logo | created using freelogodesign.org')
       ul#nav-bar.nav-bar
         li.nav-item
           a.page(href='/') Home
@@ -25,7 +25,7 @@ html(lang='en')
           a.page(href='/contacts') Contacts
       span#menu-button.menu-button
         svg#menu-icon
-          use(xlink:href='/static/icons/icons.svg#i-menu')
+          use(xlink:href='/icons/icons.svg#i-menu')
 
     block content
 
@@ -33,7 +33,7 @@ html(lang='en')
       ul#nav-bar.nav-bar
         li.nav-item
           a.logo(href='#' onclick='return false;')
-            img(src='/static/images/logo-dark.png' alt='Joyee Logo | created using freelogodesign.org')
+            img(src='/images/logo-dark.png' alt='Joyee Logo | created using freelogodesign.org')
         li.nav-item
           a.page(href='/') Home
         li.nav-item
@@ -46,23 +46,23 @@ html(lang='en')
         li.social-media
           a(href='https://www.facebook.com/')
             svg
-              use(xlink:href='/static/icons/icons.svg#i-facebook')
+              use(xlink:href='/icons/icons.svg#i-facebook')
         li.social-media
           a(href='https://twitter.com/')
             svg
-              use(xlink:href='/static/icons/icons.svg#i-twitter')
+              use(xlink:href='/icons/icons.svg#i-twitter')
         li.social-media
           a(href='https://www.linkedin.com/')
             svg
-              use(xlink:href='/static/icons/icons.svg#i-linkedin')
+              use(xlink:href='/icons/icons.svg#i-linkedin')
         li.social-media
           a(href='https://telegram.org/')
             svg
-              use(xlink:href='/static/icons/icons.svg#i-telegram')
+              use(xlink:href='/icons/icons.svg#i-telegram')
         li.social-media
           a(href='https://github.com/00009115/WebTech.CW2.00009115')
             svg
-              use(xlink:href='/static/icons/icons.svg#i-github')
+              use(xlink:href='/icons/icons.svg#i-github')
       p.information
         | This website was created to fulfill Web Technology module’s requirements and does not
         | represent an actual company or service.

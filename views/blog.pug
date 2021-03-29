@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+  section.section-blog
+    h2.h2=blog.title
+    img(src=`/images/blog-cards/${blog.type}.png` alt=`An Illustration of ${blog.type} | from https://icons8.com/illustrations`)
+    p.text=blog.text
+    .controls
+      span.detail 
+        span Author: 
+          span.author=` ${blog.author} `  
+        span Date published: 
+          span=blog.date
+        if blog.edited
+          i=`Edited on ${blog.editedDate}`
+      .buttons
+        a.btn.dark(href='#') Edit
+        a.btn.blood(href='#') Delete

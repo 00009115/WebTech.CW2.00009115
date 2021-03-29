@@ -1,0 +1,34 @@
+extends layout.pug
+
+block title
+  title Bloggy | Blogs
+
+block content
+  header.header
+        .header-image
+          img(src='/images/blogs.png' alt='Illustration')
+  section.section-blogs
+    if blogs.length
+      h2.h2 Blogs
+      #blogs.blogs
+        each blog in blogs
+          .blog-card
+            .card-image
+              img(src=`/images/blog-cards/${blog.type}.png` alt=`An Illustration of ${blog.type} | from https://icons8.com/illustrations`)
+            .card-information
+              .data
+                svg
+                  use(xlink:href='/icons/icons.svg#i-time')
+                p=blog.date
+              h3.h3=blog.title
+              p.text=blog.text
+              a.link(href=`/blogs/blog${ blog.id }`) Read &#8594;
+        a.add-btn(href="/blogs/add") 
+          svg#add-button
+            use(xlink:href='/icons/icons.svg#i-plus')
+    else
+      h2.h2 No Blogs Yet
+      a.add-btn(href="/blogs/add") 
+          svg#add-button
+            use(xlink:href='/icons/icons.svg#i-plus')
+
