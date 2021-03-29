@@ -3,81 +3,19 @@ const app = express();
 
 const fs = require('fs');
 
-const blogs = [
-    {
-        id: 0,
-        type: "pet",
-        title: "Hello!",
-        date: "12:28",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    },
-    {
-        id: 1,
-        type: "science",
-        title: "Hello!",
-        date: "12:28",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    },
-    {
-        id: 2,
-
-        type: "christmas",
-        title: "Yehhooo!",
-        date: "05:09",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    },
-    {
-        id: 3,
-
-        type: "sport",
-        title: "Hello!",
-        date: "12:28",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    },
-    {
-        id: 4,
-        type: "quizz",
-        title: "Yehhooo!",
-        date: "05:09",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    },
-    {
-        id: 5,
-        type: "homework",
-        title: "Hello!",
-        date: "12:28",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    },
-    {
-        id: 6,
-        type: "family",
-        title: "Yehhooo!",
-        date: "05:09",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    },
-    {
-        id: 7,
-        type: "cooking",
-        title: "Hello!",
-        date: "12:28",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    },
-    {
-        id: 8,
-        type: "brainstorming",
-        title: "Yehhooo!",
-        date: "05:09",
-        text: "salfmasvlk lpsdmdflk mapsoflp maspeefpo psepofk opkas[eekf [ppk[pasek [pkp[sef kp["
-    }
-];
-
 app.set("view engine", "pug");
 
 app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-    res.render("index", { blogs: blogs });
+    fs.readFile('./data/blogs.json', (err, data) => {
+        if (err) throw err
+
+        const blogs = JSON.parse(data);
+
+        res.render("index", { blogs: blogs });
+    });
 });
 
 app.get("/about", (req, res) => {
@@ -85,7 +23,13 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/blogs", (req, res) => {
-    res.render("pages/blogs", { blogs: blogs });
+    fs.readFile('./data/blogs.json', (err, data) => {
+        if (err) throw err
+
+        const blogs = JSON.parse(data);
+
+        res.render("pages/blogs", { blogs: blogs });
+    });
 });
 
 app.get("/blogs/blog", (req, res) => {
@@ -100,9 +44,11 @@ app.post("/add-blog", (req, res) => {
     const blog = {
         id: id(),
         title: req.body.title,
+        type: req.body.type,
         author: req.body.author,
         text: req.body.text,
-        date: date()
+        date: date(),
+        edited: false
     }
 
     if(blog.title.trim() === '' 
@@ -130,6 +76,19 @@ app.get("/add-blog", (req, res) => {
     res.render("pages/add-blog");
 });
 
+app.get("/blogs/blog:id", (req, res) => {
+    const id = req.params.id;
+
+    fs.readFile('./data/blogs.json', (err, data) => {
+        if (err) throw err
+
+        const blogs = JSON.parse(data);
+        const blog = blogs.filter(blog => blog.id == id)[0];
+        
+        res.render('pages/blog', {blog: blog});
+    });
+});
+
 app.listen(8000, (err) => {
     if (err) console.log(err);
     console.log("App is running on port 8000...");
@@ -144,6 +103,8 @@ const date = () => {
     let day = String(now.getDate()).padStart(2, '0');
     let month = String(now.getMonth() + 1).padStart(2, '0');
     let year = now.getFullYear();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
 
-    now = day + '.' + month + '.' + year;
-}
+    return day + '.' + month + '.' + year + ' | ' + hour + ':' + minute;
+};
