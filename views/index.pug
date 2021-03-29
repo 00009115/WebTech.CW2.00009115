@@ -28,52 +28,20 @@ block content
           use(xlink:href='/static/icons/icons.svg#i-add')
         h3.h3 Availability of posting blogs
         p Alongside with reading the already availbale blogs, you can create your own posts to the public.
-  section.section-blogs
-      h2.h2 Blogs
-      #blogs.blogs
+  section.section-blogs.home
+    h2.h2 Blogs
+    #blogs.blogs
+      each blog in blogs
         .blog-card
-              .card-image
-                img(src=`/static/images/blog-cards/`+ blogs[0].type +`.png` alt=`An Illustration of `+ blogs[0].type +` | from https://icons8.com/illustrations`)
-              .card-information
-                .data
-                  svg
-                    use(xlink:href='/static/icons/icons.svg#i-time')
-                  p=blogs[0].date
-                h3.h3=blogs[0].title
-                p.text=blogs[0].text
-                a.link(href=`/blogs/blog-` + blogs[0].id) Read &#8594;
-        .blog-card
-              .card-image
-                img(src=`/static/images/blog-cards/`+ blogs[1].type +`.png` alt=`An Illustration of `+ blogs[1].type +` | from https://icons8.com/illustrations`)
-              .card-information
-                .data
-                  svg
-                    use(xlink:href='/static/icons/icons.svg#i-time')
-                  p=blogs[1].date
-                h3.h3=blogs[1].title
-                p.text=blogs[1].text
-                a.link(href=`/blogs/blog-` + blogs[1].id) Read &#8594;
-        .blog-card
-              .card-image
-                img(src=`/static/images/blog-cards/`+ blogs[2].type +`.png` alt=`An Illustration of `+ blogs[2].type +` | from https://icons8.com/illustrations`)
-              .card-information
-                .data
-                  svg
-                    use(xlink:href='/static/icons/icons.svg#i-time')
-                  p=blogs[2].date
-                h3.h3=blogs[2].title
-                p.text=blogs[2].text
-                a.link(href=`/blogs/blog-` + blogs[2].id) Read &#8594;
-        .blog-card
-              .card-image
-                img(src=`/static/images/blog-cards/`+ blogs[3].type +`.png` alt=`An Illustration of `+ blogs[3].type +` | from https://icons8.com/illustrations`)
-              .card-information
-                .data
-                  svg
-                    use(xlink:href='/static/icons/icons.svg#i-time')
-                  p=blogs[3].date
-                h3.h3=blogs[3].title
-                p.text=blogs[3].text
-                a.link(href=`/blogs/blog-` + blogs[3].id) Read &#8594;
-      a.btn.dark(href='./pages/blogs.html') More &#8594;
+          .card-image
+            img(src=`/static/images/blog-cards/${blog.type}.png` alt=`An Illustration of ${blog.type} | from https://icons8.com/illustrations`)
+          .card-information
+            .data
+              svg
+                use(xlink:href='/static/icons/icons.svg#i-time')
+              p=blog.date
+            h3.h3=blog.title
+            p.text=blog.text
+            a.link(href=`/blogs/blog${ blog.id }`) Read &#8594;
+      a.btn.dark(href='/blogs') More &#8594;
   

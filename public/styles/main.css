@@ -526,6 +526,11 @@ button.btn {
 
 .section-blogs .blogs .blog-card .card-information .text {
     font-size: 1.1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-box-orient: vertical;
 }
 
 .section-blogs .blogs .blog-card .card-information .link {
@@ -930,6 +935,10 @@ button.btn {
     filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.2));
     -webkit-transform: scale(1.015) translateY(-0.5rem);
     transform: scale(1.015) translateY(-0.5rem);
+}
+
+.section-blogs.home .blogs .blog-card:nth-child(n+5) {
+    display: none!important;
 }
 
 .section-add {

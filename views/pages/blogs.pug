@@ -13,7 +13,7 @@ block content
       each blog in blogs
         .blog-card
           .card-image
-            img(src=`/static/images/blog-cards/`+ blog.type +`.png` alt=`An Illustration of `+ blog.type +` | from https://icons8.com/illustrations`)
+            img(src=`/static/images/blog-cards/${blog.type}.png` alt=`An Illustration of ${blog.type} | from https://icons8.com/illustrations`)
           .card-information
             .data
               svg
@@ -21,7 +21,7 @@ block content
               p=blog.date
             h3.h3=blog.title
             p.text=blog.text
-            a.link(href=`/blogs/blog-` + blog.id) Read &#8594;
+            a.link(href=`/blogs/blog${ blog.id }`) Read &#8594;
     a(href="/add-blog") 
       svg#add-button
         use(xlink:href='/static/icons/icons.svg#i-plus')
