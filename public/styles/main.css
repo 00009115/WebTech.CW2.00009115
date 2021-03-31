@@ -354,6 +354,9 @@ button.btn {
     .header .header-image img {
         width: 50%;
     }
+    .header .header-information .h1 span {
+        margin-top: 3rem;
+    }
 }
 
 @media only screen and (max-width: 575.98px) {
@@ -423,6 +426,9 @@ button.btn {
 }
 
 @media only screen and (max-width: 767.98px) {
+    .section-advantages {
+        padding: 10rem 2rem 0 2rem;
+    }
     .section-advantages .advantages {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -561,9 +567,15 @@ button.btn {
 }
 
 @media only screen and (max-width: 575.98px) {
+    .section-blogs {
+        padding: 0 5rem;
+    }
     .section-blogs .blogs {
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+    }
+    .section-blogs .h2 {
+        margin: 5rem;
     }
 }
 
@@ -677,6 +689,10 @@ button.btn {
         -ms-flex-direction: column;
         flex-direction: column;
     }
+
+    .footer .nav-bar .nav-item:first-child {
+        margin-top: 1rem;
+    }
 }
 
 .footer .information {
@@ -770,6 +786,7 @@ button.btn {
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
+        padding: 5rem 1.5rem;
     }
     .section-about .about-data.reverse {
         -webkit-box-orient: vertical;
@@ -913,6 +930,9 @@ button.btn {
 }
 
 @media only screen and (max-width: 767.98px) {
+    .section-contact-us {
+        padding: 5rem 3rem;
+    }
     .section-contact-us .contact-us {
         width: 80%;
     }
@@ -1004,11 +1024,18 @@ button.btn {
     grid-column: 2 / -1;
     border-radius: 3rem;
     border: 1px solid #222;
+}
+
+input,
+select,
+textarea,
+label {
     font-family: "Poppins", sans-serif;
 }
 
 .section-add .add-box .add-blog-form textarea {
     height: 20rem;
+    overflow-y: scroll;
 }
 
 .section-add .add-box .add-blog-form textarea::-webkit-input-placeholder,
@@ -1060,7 +1087,8 @@ button.btn {
         grid-column: 1 / -1;
         margin-bottom: 1rem;
     }
-    .section-add .add-box .add-blog-form label {}
+    .section-add .add-box .add-blog-form label {
+    }
 }
 
 @media only screen and (max-width: 575.98px) {
