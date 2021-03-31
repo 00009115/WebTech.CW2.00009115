@@ -489,6 +489,15 @@ button.btn {
     transition: all 0.2s;
 }
 
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .section-blogs .blogs .blog-card {
+        height: 100%;
+    }
+}
+
 .section-blogs .blogs .blog-card .card-image img {
     max-width: 100%;
 }
