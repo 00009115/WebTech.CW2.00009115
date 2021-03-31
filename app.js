@@ -1,14 +1,15 @@
 //Basic Setup
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 //Routes
-const blogs = require('./routes/blogs.js')
-const pages = require('./routes/pages.js')
+const blogs = require('./routes/blogs.js');
+const pages = require('./routes/pages.js');
 
-const DbContext = require("./services/db")
-const dbc = new DbContext()
+const PORT = 8080;
+const DbContext = require("./services/db");
+const dbc = new DbContext();
 dbc.useCollection("blogs.json");
 
 // serving static files
@@ -27,7 +28,7 @@ app.set("view engine", "pug");
 app.use('/blogs', blogs);
 app.use('/', pages);
 
-app.listen(8088, (err) => {
+app.listen(PORT, (err) => {
     if (err) console.log(err);
-    console.log("App is running on port http://localhost:8000/...");
+    console.log(`App is running on port http://localhost:${ PORT }/...`);
 });
