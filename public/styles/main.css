@@ -480,22 +480,13 @@ button.btn {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    height: 100%;
+    height: fit-content%;
     border-radius: 3rem;
     overflow: hidden;
     -webkit-box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.2);
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
-}
-
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3) { 
-    .section-blogs .blogs .blog-card {
-        height: 100%;
-    }
 }
 
 .section-blogs .blogs .blog-card .card-image img {
