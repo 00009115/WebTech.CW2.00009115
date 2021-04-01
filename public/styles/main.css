@@ -254,6 +254,9 @@ button.btn {
 }
 
 @media only screen and (max-width: 767.98px) {
+    .nav {
+      padding: 2rem;
+    }
     .nav .nav-bar.is-visible {
         right: 0;
     }
@@ -1132,8 +1135,9 @@ label {
     margin-bottom: 5rem;
 }
 
-.section-blog .blog-detail-img {
+.section-blog img {
     width: 100%;
+    height: auto;
 }
 
 .section-blog .text {
@@ -1168,6 +1172,24 @@ label {
 
 .section-blog .detail .author {
     font-weight: bolder;
+}
+
+@media only screen and (max-width: 991.98px) {
+    .section-blog {
+        width: 70%
+    }
+}
+
+@media only screen and (max-width: 767.98px) {
+    .section-blog {
+        width: 80%
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .section-blog {
+        width: 90%
+    }
 }
 
 p.message {
