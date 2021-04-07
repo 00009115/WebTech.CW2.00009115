@@ -11,14 +11,35 @@ const root = require("../utils").root;
 const getCollection = require("../utils").getCollection;
 
 const dbc = new DbContext()
+const dbcUser = new DbContext()
 const v = new Validator()
 
 dbc.useCollection('blogs.json');
+dbcUser.useCollection('users.json');
 
 router.get("/", (req, res) => {
+  let signedInUser = {};
+
+  dbcUser.checkUser(
+    user => { signedInUser = user }
+  )
+
   dbc.getAll(
-    records => res.render("index", { blogs: records }),
+    records => res.render("index", { blogs: records, user: signedInUser }),
     () => res.render("index", { blogs: null })
+  )
+});
+
+router.get("/profile", (req, res) => {
+  let signedInUser = {};
+
+  dbcUser.checkUser(
+    user => { signedInUser = user }
+  )
+
+  dbc.getAll(
+    records => res.render("profile", { blogs: records, user: signedInUser }),
+    () => res.render("profile", { blogs: null })
   )
 });
 

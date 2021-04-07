@@ -193,7 +193,7 @@ button.btn {
 .nav .nav-bar {
 	list-style: none;
 	-ms-flex-preferred-size: 50%;
-	flex-basis: 30%;
+	flex-basis: 50%;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;

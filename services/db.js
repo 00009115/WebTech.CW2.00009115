@@ -110,14 +110,14 @@ class DbContext {
 			});
 		});
 	}
-	
-	check(newRecord, successCb, errorCb) {
+
+	signUp(newRecord, successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
 
 			const users = JSON.parse(data);
 
-			users.forEach(user => {
+			users.forEach((user) => {
 				if (user.username === newRecord.username && user.password === newRecord.password) {
 					user.isSigned = true;
 				} else {
@@ -134,6 +134,18 @@ class DbContext {
 					successCb(false);
 				}
 			});
+		});
+	}
+
+	checkUser(successCb, errorCb) {
+		fs.readFile(this.collection, "utf8", (err, data) => {
+			if (err) errorCb();
+
+			const users = JSON.parse(data);
+
+			if (users.some((user) => user.isSigned === true)) {
+				successCb(users.find((user) => user.isSigned === true));
+			}
 		});
 	}
 }

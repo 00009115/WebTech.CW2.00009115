@@ -28,7 +28,7 @@ router.get("/in", (req, res) => {
 
 router.post("/in", (req, res) => {
 	if (v.isValidUser(req.body)) {
-    dbc.check(req.body, (status) => res.render("sign-in", { success: status }));
+    dbc.signUp(req.body, (status) => res.render("sign-in", { success: status }));
 	} else {
     res.render("sign-in", { error: true });
 	}

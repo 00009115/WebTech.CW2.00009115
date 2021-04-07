@@ -23,6 +23,15 @@ html(lang='en')
           a.page(href='/blogs') Blogs
         li.nav-item
           a.page(href='/contacts') Contacts
+        if user.isSigned
+          li#user.nav-item.user
+            a(href='/profile')
+              svg#user-icon
+                use(xlink:href='/icons/icons.svg#i-user')
+        else
+          li#sign.nav-item.sign-up
+            a#sign-button.btn.dark(href='/sign/up') Sign Up
+
       span#menu-button.menu-button
         svg#menu-icon
           use(xlink:href='/icons/icons.svg#i-menu')
