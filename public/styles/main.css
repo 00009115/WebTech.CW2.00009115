@@ -1339,6 +1339,27 @@ p.success {
 	}
 }
 
+.message {
+	border: 1px solid transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5rem;
+	padding: 0.5rem;
+}
+
+.message.success {
+	border-color: green;
+	color: green;
+	background-color: rgb(191, 255, 191);
+}
+
+.message.error {
+	border-color: red;
+	color: red;
+	background-color: rgb(245, 196, 196);
+}
+
 .profile .header .header-image img {
 	width: 30%;
 }

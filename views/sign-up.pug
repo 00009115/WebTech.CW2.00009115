@@ -26,6 +26,10 @@ html(lang='en')
 
     section.section-sign
       h2.h2 Sign Up
+      if success
+        span.message.success Successfully Added!
+      else if error
+        span.message.error Some Error Occured! Try Again!
       form.sign-in(action="/sign/up" method="POST") 
         label(for='username') Username:
         input#username(type='text' name='username')

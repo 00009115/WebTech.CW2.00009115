@@ -6,6 +6,14 @@ class Validator {
       return true;
     }
   }
+  
+  isValidUser(data) {
+    if (data.username.trim() === "" || data.password.trim() === "") {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
 
 module.exports = Validator;
