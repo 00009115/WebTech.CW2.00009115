@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='icon' href='/icons/favicon.png')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(href='https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap&family=Poppins:wght@300;400;500&display=swap&family=Englebert&display=swap' rel='stylesheet')
+    link(href='/styles/main.css' rel='stylesheet' type='text/css')
+    title Bloggy | Sign-Up
+
+  body.sign
+    nav.nav
+      a.logo(href='/')
+        img(src='/images/logo-main.png' alt='Bloggy Logo | created using freelogodesign.org')
+      ul#nav-bar.nav-bar
+        li.nav-item
+          a.page(href='/') Home
+        li.nav-item
+          a.page(href='/about') About
+        li.nav-item
+          a.page(href='/blogs') Blogs
+        li.nav-item
+          a.page(href='/contacts') Contacts
+
+    section.section-sign
+      h2.h2 Sign Up
+      form.sign-in(action="/sign-up" method="POST") 
+        label(for='username') Username:
+        input#username(type='text' name='username')
+        label(for='password') Password:
+        input#password(type='password' name='password')
+        button#sign-up-btn.btn.dark Sign Up
+      p Already have an account?
+      a.link(href='/sign-in') Sign In
