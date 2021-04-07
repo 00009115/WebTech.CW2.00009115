@@ -1360,28 +1360,29 @@ p.success {
 	background-color: rgb(245, 196, 196);
 }
 
-.profile .header .header-image img {
-	width: 30%;
+.section-profile {
+	padding: 15rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.profile .section-profile {
-	padding: 5rem;
-	text-align: center;
-	background-color: rgba(0, 89, 255, 0.1);
-}
-
-.profile .section-profile svg {
+.section-profile svg {
 	width: 15rem;
 	height: 15rem;
 	fill: #003ba8;
 }
 
-.profile .section-profile p#profile-username {
-	font-size: 3rem;
-	margin-bottom: 5rem;
+.section-profile h2 {
+	margin: 0;
 }
 
-.profile .section-events .empty-message {
+.section-profile .btn {
+	margin-top: 5rem;
+}
+
+.section-events .empty-message {
 	grid-column: 1 / -1;
 	text-align: center;
 	font-size: 1.5rem;

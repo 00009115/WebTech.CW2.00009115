@@ -16,7 +16,7 @@ router.get("/up", (req, res) => {
 
 router.post("/up", (req, res) => {
 	if (v.isValidUser(req.body)) {
-		dbc.addUser(req.body, () => res.render("sign-up", { success: true }));
+		dbc.signUp(req.body, () => res.render("sign-up", { success: true }));
 	} else {
 		res.render("sign-up", { error: true, success: false });
 	}
@@ -28,10 +28,20 @@ router.get("/in", (req, res) => {
 
 router.post("/in", (req, res) => {
 	if (v.isValidUser(req.body)) {
-    dbc.signUp(req.body, (status) => res.render("sign-in", { success: status }));
+		dbc.signIn(req.body, user => {
+			if (user) {
+				res.render("profile", { user: user })
+			} else if (user == false) {
+				res.render("sign-in", { incorrect: true });
+			}
+		});
 	} else {
     res.render("sign-in", { error: true });
 	}
+});
+
+router.get("/out", (req, res) => {
+	dbc.signOut(() => res.redirect("/"));
 });
 
 module.exports = router;

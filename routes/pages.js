@@ -31,15 +31,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/profile", (req, res) => {
-  let signedInUser = {};
-
   dbcUser.checkUser(
-    user => { signedInUser = user }
-  )
-
-  dbc.getAll(
-    records => res.render("profile", { blogs: records, user: signedInUser }),
-    () => res.render("profile", { blogs: null })
+    user => res.render("profile", { user: user })
   )
 });
 

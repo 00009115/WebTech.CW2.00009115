@@ -4,17 +4,8 @@ block title
   title Bloggy | Profile
 
 block content
-  header.header
-  .header-image
-    img(src='../images/profile.png' alt='Illustration representing entertainment')
   section.section-profile
-    h2.h2 My Profile
     svg#user-icon
-      use(xlink:href='../icons/icons.svg#i-user')
-    p#profile-username=user.username
-  section.section-events
-    h2.h2 My Events
-    #myEvents.events
-      p#empty-message.empty-message You have no events. You can add them on
-        a(href='/blogs') All Blogs
-  
+        use(xlink:href='../icons/icons.svg#i-user')
+    h2.h2=user.username
+    a.btn.dark(href="/sign/out") Sign Out

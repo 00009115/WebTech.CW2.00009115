@@ -91,7 +91,7 @@ class DbContext {
 		});
 	}
 
-	addUser(newRecord, successCb, errorCb) {
+	signUp(newRecord, successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
 
@@ -111,28 +111,49 @@ class DbContext {
 		});
 	}
 
-	signUp(newRecord, successCb, errorCb) {
+	signIn(newRecord, successCb, errorCb) {
+		fs.readFile(this.collection, "utf8", (err, data) => {
+			if (err) errorCb();
+
+			const users = JSON.parse(data);
+
+			if (users.length) {
+					users.forEach((user) => {
+						if (user.username === newRecord.username && user.password === newRecord.password) {
+							user.isSigned = true;
+						} else {
+							user.isSigned = false;
+						}
+					});
+			}
+		
+
+			fs.writeFile(this.collection, JSON.stringify(users), (err) => {
+				if (err) errorCb();
+
+				if (users.some((user) => user.isSigned === true)) {
+					successCb(users.find((user) => user.isSigned === true));
+				} else {
+					successCb(false);
+				}
+			});
+		});
+	}
+
+	signOut(successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
 
 			const users = JSON.parse(data);
 
 			users.forEach((user) => {
-				if (user.username === newRecord.username && user.password === newRecord.password) {
-					user.isSigned = true;
-				} else {
-					user.isSigned = false;
-				}
+				user.isSigned = false;
 			});
 
 			fs.writeFile(this.collection, JSON.stringify(users), (err) => {
 				if (err) errorCb();
 
-				if (users.some((user) => user.isSigned === true)) {
-					successCb(users.find((user) => user.isSigned === true).isSigned);
-				} else {
-					successCb(false);
-				}
+				successCb()
 			});
 		});
 	}
