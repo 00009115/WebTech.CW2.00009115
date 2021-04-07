@@ -1,12 +1,14 @@
-//Basic Setup
 const express = require("express");
 const router = express.Router();
 
+//importing services
 const DbContext = require("../services/db");
 
+//new instances of classes
 const dbc = new DbContext();
 const dbcUser = new DbContext();
 
+//setting a database file that should be used
 dbc.useCollection("blogs.json");
 dbcUser.useCollection("users.json");
 
@@ -44,6 +46,7 @@ router.get("/contacts", (req, res) => {
 	}, 500);
 });
 
+//identifying a signed user
 const setUser = () => {
 	dbcUser.checkUser((user) => {
 		signedUser = user;

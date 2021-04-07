@@ -12,31 +12,33 @@ const pages = require('./routes/pages.js');
 const DbContext = require("./services/db");
 const dbc = new DbContext();
 
+//Ports
 const PORT = 8080;
 
+//setting a database file that should be used
 dbc.useCollection("blogs.json");
 
 // serving static files
 app.use(express.static('public'));
 
-// parse application/x-www-form-urlencoded
+// other set-ups
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
 app.use(bodyParser.json());
 
 // setting template engine
 app.set("view engine", "pug");
 
-//urls
+//route urls
 app.use('/blogs', blogs);
 app.use('/sign', sign);
 app.use('/', pages);
 
+//api
 app.get("/api/v1/blogs", (req, res) => {
     dbc.getAll(records => res.json(records));
 });
 
+//listening to certain port
 app.listen(PORT, (err) => {
     if (err) console.log(err);
     console.log(`App is running on port http://localhost:${ PORT }/...`);

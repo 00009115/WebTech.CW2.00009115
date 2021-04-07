@@ -1,14 +1,16 @@
-//Basic Setup
 const express = require("express");
 const router = express.Router();
 
+//importing services
 const Validator = require("../services/validators");
 const DbContext = require("../services/db");
 
+//new instances of classes
 const dbc = new DbContext();
 const dbcUser = new DbContext();
 const v = new Validator();
 
+//setting a database file that should be used
 dbc.useCollection("blogs.json");
 dbcUser.useCollection("users.json");
 
@@ -62,6 +64,7 @@ router.post("/:id/update", (req, res) => {
 	dbc.updateOne(req.params.id, req.body, () => res.redirect(`/blogs/${req.params.id}`)), () => res.sendStatus(500);
 });
 
+//identifying a signed user
 const setUser = () => {
 	dbcUser.checkUser((user) => {
 		signedUser = user;

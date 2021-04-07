@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
+//importing all supporting functions of utils
 const generateID = require("../utils").generateID;
 const date = require("../utils").date;
 const root = require("../utils").root;
@@ -10,11 +11,13 @@ class DbContext {
 		this.collection = null;
 	}
 
+	//defining a json file that should be used
 	useCollection(collection = "") {
 		this.collection = path.join(root, `database/${collection}`);
 		console.log(this.collection);
 	}
 
+	//getting a single blog with inserted ID
 	getOne(id, successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
@@ -25,6 +28,7 @@ class DbContext {
 		});
 	}
 
+	//getting all blogs
 	getAll(successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
@@ -34,6 +38,7 @@ class DbContext {
 		});
 	}
 
+	//saving a new blog
 	saveOne(newRecord, successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
@@ -57,6 +62,7 @@ class DbContext {
 		});
 	}
 
+	//deleting a blog by its ID number
 	deleteOne(id, successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
@@ -72,6 +78,7 @@ class DbContext {
 		});
 	}
 
+	//updating a blog with given ID number
 	updateOne(id, newRecord, successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
@@ -91,14 +98,15 @@ class DbContext {
 		});
 	}
 
+	//signing up - registering
 	signUp(newRecord, successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
 
 			const users = JSON.parse(data);
 
-			if (users.some(user => user.username == newRecord.username)) {
-				errorCb()
+			if (users.some((user) => user.username == newRecord.username)) {
+				errorCb();
 			} else {
 				users.push({
 					id: "user_" + generateID(),
@@ -114,6 +122,7 @@ class DbContext {
 		});
 	}
 
+	//signing in - loggins in
 	signIn(newRecord, successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
@@ -121,15 +130,14 @@ class DbContext {
 			const users = JSON.parse(data);
 
 			if (users.length) {
-					users.forEach((user) => {
-						if (user.username === newRecord.username && user.password === newRecord.password) {
-							user.isSigned = true;
-						} else {
-							user.isSigned = false;
-						}
-					});
+				users.forEach((user) => {
+					if (user.username === newRecord.username && user.password === newRecord.password) {
+						user.isSigned = true;
+					} else {
+						user.isSigned = false;
+					}
+				});
 			}
-		
 
 			fs.writeFile(this.collection, JSON.stringify(users), (err) => {
 				if (err) errorCb();
@@ -143,6 +151,7 @@ class DbContext {
 		});
 	}
 
+	//signing out - exitting
 	signOut(successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
@@ -156,11 +165,12 @@ class DbContext {
 			fs.writeFile(this.collection, JSON.stringify(users), (err) => {
 				if (err) errorCb();
 
-				successCb()
+				successCb();
 			});
 		});
 	}
 
+	//getting a user which has signed in
 	checkUser(successCb, errorCb) {
 		fs.readFile(this.collection, "utf8", (err, data) => {
 			if (err) errorCb();
@@ -170,7 +180,7 @@ class DbContext {
 			if (users.some((user) => user.isSigned === true)) {
 				successCb(users.find((user) => user.isSigned === true));
 			} else {
-				successCb(false)
+				successCb(false);
 			}
 		});
 	}

@@ -1,14 +1,16 @@
-//Basic Setup
 const express = require("express");
 const router = express.Router();
 
+//importing services
 const Validator = require("../services/validators");
 const DbContext = require("../services/db");
 
+//new instances of classes
 const dbc = new DbContext();
 const dbcBlogs = new DbContext();
 const v = new Validator();
 
+//setting a database file that should be used
 dbc.useCollection("users.json");
 dbcBlogs.useCollection("blogs.json");
 
@@ -20,7 +22,11 @@ router.get("/up", (req, res) => {
 
 router.post("/up", (req, res) => {
 	if (v.isValidUser(req.body)) {
-		dbc.signUp(req.body, () => res.render("sign-up", { success: true }), () => res.render("sign-up", {exists: true}));
+		dbc.signUp(
+			req.body,
+			() => res.render("sign-up", { success: true }),
+			() => res.render("sign-up", { exists: true })
+		);
 	} else {
 		res.render("sign-up", { error: true, success: false });
 	}
@@ -33,7 +39,7 @@ router.get("/in", (req, res) => {
 router.post("/in", (req, res) => {
 	setUser();
 	if (v.isValidUser(req.body)) {
-		dbc.signIn(req.body, user => {
+		dbc.signIn(req.body, (user) => {
 			if (user) {
 				setTimeout(() => {
 					res.redirect("/profile");
@@ -43,14 +49,16 @@ router.post("/in", (req, res) => {
 			}
 		});
 	} else {
-    res.render("sign-in", { error: true });
+		res.render("sign-in", { error: true });
 	}
 });
 
 router.get("/out", (req, res) => {
 	setUser();
 	let blogs = [];
-	dbcBlogs.getAll(records => {blogs = records});
+	dbcBlogs.getAll((records) => {
+		blogs = records;
+	});
 	dbc.signOut(() =>
 		setTimeout(() => {
 			res.redirect("/");
@@ -58,6 +66,7 @@ router.get("/out", (req, res) => {
 	);
 });
 
+//identifying a signed user
 const setUser = () => {
 	dbc.checkUser((user) => {
 		signedUser = user;
