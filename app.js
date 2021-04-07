@@ -8,9 +8,12 @@ const blogs = require('./routes/blogs.js');
 const sign = require('./routes/sign.js');
 const pages = require('./routes/pages.js');
 
-const PORT = 8080;
+//Database
 const DbContext = require("./services/db");
 const dbc = new DbContext();
+
+const PORT = 8080;
+
 dbc.useCollection("blogs.json");
 
 // serving static files
@@ -29,6 +32,10 @@ app.set("view engine", "pug");
 app.use('/blogs', blogs);
 app.use('/sign', sign);
 app.use('/', pages);
+
+app.get("/api/v1/blogs", (req, res) => {
+    dbc.getAll(records => res.json(records));
+});
 
 app.listen(PORT, (err) => {
     if (err) console.log(err);
