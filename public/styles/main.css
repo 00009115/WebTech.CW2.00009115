@@ -476,6 +476,7 @@ button.btn {
 }
 
 .section-blogs .blogs .blog-card {
+	min-height: 100%;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;

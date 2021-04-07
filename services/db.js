@@ -166,6 +166,8 @@ class DbContext {
 
 			if (users.some((user) => user.isSigned === true)) {
 				successCb(users.find((user) => user.isSigned === true));
+			} else {
+				successCb(false)
 			}
 		});
 	}
