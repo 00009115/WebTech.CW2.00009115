@@ -28,6 +28,8 @@ html(lang='en')
       h2.h2 Sign Up
       if success
         span.message.success Successfully Added!
+      else if exists
+        span.message.error This username has already taken!
       else if error
         span.message.error Some Error Occured! Try Again!
       form.sign-in(action="/sign/up" method="POST") 

@@ -2,13 +2,8 @@
 const express = require("express");
 const router = express.Router();
 
-const fs = require("fs");
-const path = require("path");
-
 const Validator = require("../services/validators");
 const DbContext = require("../services/db");
-const root = require("../utils").root;
-const getCollection = require("../utils").getCollection;
 
 const dbc = new DbContext();
 const dbcUser = new DbContext();

@@ -97,17 +97,20 @@ class DbContext {
 
 			const users = JSON.parse(data);
 
-			users.push({
-				id: "user_" + generateID(),
-				username: newRecord.username,
-				password: newRecord.password,
-				isSigned: false,
-			});
+			if (users.some(user => user.username == newRecord.username)) {
+				errorCb()
+			} else {
+				users.push({
+					id: "user_" + generateID(),
+					username: newRecord.username,
+					password: newRecord.password,
+					isSigned: false,
+				});
 
-			fs.writeFile(this.collection, JSON.stringify(users), (err) => {
-				if (err) errorCb();
-				successCb();
-			});
+				fs.writeFile(this.collection, JSON.stringify(users), (err) => {
+					successCb();
+				});
+			}
 		});
 	}
 

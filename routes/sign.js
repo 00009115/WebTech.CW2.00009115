@@ -20,7 +20,7 @@ router.get("/up", (req, res) => {
 
 router.post("/up", (req, res) => {
 	if (v.isValidUser(req.body)) {
-		dbc.signUp(req.body, () => res.render("sign-up", { success: true }));
+		dbc.signUp(req.body, () => res.render("sign-up", { success: true }), () => res.render("sign-up", {exists: true}));
 	} else {
 		res.render("sign-up", { error: true, success: false });
 	}
