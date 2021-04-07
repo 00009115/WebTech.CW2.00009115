@@ -10,8 +10,8 @@ html(lang='en')
     title Bloggy | Sign-In
   body.sign.sign-in
     nav.nav
-      a.logo(href='../index.html')
-        img(src='../images/logo-main.png' alt='Joyee Logo | created using freelogodesign.org')
+      a.logo(href='/')
+        img(src='/images/logo-main.png' alt='Bloggy Logo | created using freelogodesign.org')
       ul#nav-bar.nav-bar
         li.nav-item
           a.page(href='/') Home
@@ -23,11 +23,11 @@ html(lang='en')
           a.page(href='/contacts') Contacts
     section.section-sign
       h2.h2 Sign In
-      form.sign-in(action="/sign-in" method="POST") 
+      form.sign-in(action="/sign/in" method="POST") 
         label(for='username') Username:
         input#username(type='text' name='username')
         label(for='password') Password:
         input#password(type='password' name='password')
         button#sign-up-btn.btn.dark Sign In
       p Don't you have an account?
-      a.link(href='/sign-up') Sign Up
+      a.link(href='/sign/up') Sign Up

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 //Routes
 const blogs = require('./routes/blogs.js');
+const sign = require('./routes/sign.js');
 const pages = require('./routes/pages.js');
 
 const PORT = 8080;
@@ -26,6 +27,7 @@ app.set("view engine", "pug");
 
 //urls
 app.use('/blogs', blogs);
+app.use('/sign', sign);
 app.use('/', pages);
 
 app.listen(PORT, (err) => {

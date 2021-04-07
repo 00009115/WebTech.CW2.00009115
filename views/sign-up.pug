@@ -26,11 +26,11 @@ html(lang='en')
 
     section.section-sign
       h2.h2 Sign Up
-      form.sign-in(action="/sign-up" method="POST") 
+      form.sign-in(action="/sign/up" method="POST") 
         label(for='username') Username:
         input#username(type='text' name='username')
         label(for='password') Password:
         input#password(type='password' name='password')
         button#sign-up-btn.btn.dark Sign Up
       p Already have an account?
-      a.link(href='/sign-in') Sign In
+      a.link(href='/sign/in') Sign In
